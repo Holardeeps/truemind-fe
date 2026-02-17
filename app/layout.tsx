@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
         {children}
+        {/* The footer is shared accross all screens. Hereby adding it at the App's root layout. */}
         <Footer />
       </body>
     </html>

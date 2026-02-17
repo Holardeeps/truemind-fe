@@ -4,6 +4,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-primary: #ff7a18;
+  --color-primary-blue: #1e88e5;
+  --color-soft-gray: #f3f4f6;
+  --color-white: #ffffff;
+  --color-light-orange: #ffe1c4;
+  --color-details: #1f2937;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -126,5 +135,8 @@
     @apply bg-background text-foreground;
     @apply bg-background text-foreground;
     @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
   }
 }

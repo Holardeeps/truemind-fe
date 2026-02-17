@@ -1,0 +1,27 @@
+orange => rgba(255, 122, 24, 0.3)
+
+brown => rgba(31, 41, 55, 1)
+
+orange overlay => rgba(255, 122, 24, 0.7)
+
+primary color => rgba(255, 122, 24, 1)
+
+soft gray background => rgba(243, 244, 246, 1)
+
+white= > rgba(255, 255, 255, 1)
+
+subtext border => rgba(189, 189, 189, 1)
+
+primary blue => > rgba(30, 136, 229, 1) //links
+
+stroke => rgba(189, 189, 189, 1) //icon backgrounds
+
+
+
+dark gray text => rgba(75, 85, 99, 1)
+
+heading 2 text => rgba(0, 0, 0, 1)
+
+
+explore image bg overlay => rgba(0, 0, 0, 0.45)
+
