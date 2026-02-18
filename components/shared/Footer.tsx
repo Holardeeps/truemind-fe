@@ -1,5 +1,5 @@
+import { navLinks } from "@/constants";
 import Image from "next/image";
-import { navLinks } from "./NavBar";
 
 const Footer = () => {
   return (
@@ -73,7 +73,7 @@ const Footer = () => {
           © 2020 Lift Media. All rights reserved.
         </p>
 
-        <span className="absolute w-13 h-13 bottom-0 right-24">
+        <span className="absolute w-13 h-13 bottom-0 right-0 md:right-24">
           <img
             src="/icons/arrow-up.png"
             alt="scroll-top pointer"

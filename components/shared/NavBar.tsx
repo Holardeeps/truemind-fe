@@ -1,19 +1,30 @@
+"use client";
+
+// hooks
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+
+//  next tools
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
 
-export const navLinks = [
-  { title: "home", href: "/" },
-  { title: "explore", href: "/explore" },
-  { title: "my orders", href: "/orders" },
-  { title: "account", href: "/my-account" },
-  { title: "contact", href: "#" },
-];
+// UI
+import { Button } from "../ui/button";
+import { navLinks } from "@/constants";
 
 const NavBar = () => {
+  const pathname = usePathname();
+  const [activeTab, setActiveTab] = useState("home");
+
+  // Automatically update active tab when route changes
+  useEffect(() => {
+    const current = navLinks.find((item) => item.href === pathname);
+    if (current) setActiveTab(current.title);
+  }, [pathname]);
+
   return (
-    <div className="sticky top-0 w-full h-24 bg-white">
-      <nav className="w-full h-full px-6 py-4 flex space-x-12 items-center relative">
+    <div className="sticky top-0 w-full h-22.5 bg-white">
+      <nav className="w-full h-full px-12 py-4.5 flex gap-11.25 items-center relative">
         <Image
           src={"/images/ChuksKitchen.png"}
           alt="Chuks Kitchen Logo"
@@ -21,15 +32,19 @@ const NavBar = () => {
           width={183}
           className="hover:scale-y-105 w-auto h-auto"
         />
-        <ul className="flex items-center justify-between flex-1">
+        <ul className="flex items-center justify-around flex-1 capitalize text-base font-medium text-details">
           {navLinks.slice(0, 4).map((link) => (
-            <Link key={link.href} href={`${link.href}`} className="capitalize">
+            <Link
+              key={link.href}
+              href={`${link.href}`}
+              className={`${activeTab === link.title ? "text-[#ff7a18] font-bold" : ""}`}
+            >
               {link.title}
             </Link>
           ))}
         </ul>
 
-        <Button className="px-8 py-3 w-40 h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-xl cursor-pointer">
+        <Button className="px-8 py-3.75 w-40 h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer">
           Login
         </Button>
       </nav>
