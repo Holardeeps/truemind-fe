@@ -1,6 +1,6 @@
 "use client";
 
-import { easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
@@ -8,7 +8,7 @@ const AuthImage = () => {
   const pathname = usePathname();
 
   return (
-    <div className=" flex h-screen w-1/2 sticky top-0 aspect-video">
+    <div className=" flex h-screen w-1/2 sticky top-0 aspect-video max-md:hidden">
       <div className="absolute w-full h-full -z-10">
         <Image
           src={"/images/AuthGroupImage.png"}

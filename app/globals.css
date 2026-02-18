@@ -5,12 +5,34 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  /* Color palette Guide */
+
+  /* Orange ranges */
   --color-primary: #ff7a18;
+  --color-soft-orange: #ffb066;
+  --color-light-orange: #ffe1c4;
+  --color-dark-orange: #c95400;
+
+  /* Pink ranges */
+  --color-primary-pink: #ff4f9a;
+  --color-soft-pink: #ff9ac7;
+  --color-light-pink: #ffe1ee;
+  --color-dark-pink: #b0005a;
+
+  /* Blue ranges */
   --color-primary-blue: #1e88e5;
+  --color-soft-blue: #64b5f6;
+  --color-light-blue: #e3f2fd;
+  --color-dark-blue: #0d47a1;
+
+  /*  */
   --color-soft-gray: #f3f4f6;
   --color-white: #ffffff;
-  --color-light-orange: #ffe1c4;
+
+  /* Text colors */
   --color-details: #1f2937;
+  --color-dark-gray: #4b5563;
+  --color-muted-gray: #9ca3af;
 }
 
 @theme inline {
@@ -139,4 +161,10 @@
   html {
     scroll-behavior: smooth;
   }
+}
+
+.background {
+  background:
+    linear-gradient(0deg, rgba(255, 122, 24, 0.3), rgba(255, 122, 24, 0.3)),
+    #1f2937;
 }
