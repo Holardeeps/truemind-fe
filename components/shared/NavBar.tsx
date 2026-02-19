@@ -37,16 +37,18 @@ const NavBar = () => {
             <Link
               key={link.href}
               href={`${link.href}`}
-              className={`${activeTab === link.title ? "text-[#ff7a18] font-bold" : ""}`}
+              className={`${activeTab === link.title ? "text-primary-orange font-bold" : ""}`}
             >
               {link.title}
             </Link>
           ))}
         </ul>
 
-        <Button className="px-8 py-3.75 w-40 h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer">
-          Login
-        </Button>
+        <Link href={`/sign-in`}>
+          <Button className="px-8 py-3.75 w-40 h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer">
+            Login
+          </Button>
+        </Link>
       </nav>
     </header>
   );

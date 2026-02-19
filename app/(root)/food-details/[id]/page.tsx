@@ -1,0 +1,37 @@
+import FoodDetailsContainer from "@/components/FoodDetailsContainer";
+import { inventory } from "@/constants";
+import { getRandomFoodItem, slugify } from "@/lib/utils";
+import Image from "next/image";
+
+type FoodCardProps = {
+  params: { id: string };
+};
+
+const FoodCard = async ({ params }: FoodCardProps) => {
+  const { id } = await params;
+
+  const food =
+    inventory.find((item) => id === slugify(item.name)) ||
+    getRandomFoodItem(inventory);
+
+  if (!food || food === undefined)
+    return new Error("Could'nt get this exact food from the Inventory..");
+
+  return (
+    <section className="flex w-full min-h-screen" id="home">
+      <div className="relative w-1/2 overflow-hidden">
+        <Image
+          src={food.img}
+          fill
+          alt={food.name}
+          className="object-cover brightness-95 w-full h-full"
+        />
+      </div>
+      <div className="w-1/2 flex items-center justify-center p-12">
+        <FoodDetailsContainer food={food} />
+      </div>
+    </section>
+  );
+};
+
+export default FoodCard;

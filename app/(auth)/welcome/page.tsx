@@ -100,5 +100,3 @@ const OnBoarding = () => {
 };
 
 export default OnBoarding;
-
-//Design decision: Removed the sign in button at the top right of the mobile screen design because i felt the mobile screen had one too many CTA elements, i made the "start your order" button link to the sign-in page

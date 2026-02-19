@@ -1,4 +1,4 @@
-import { Inventory } from "@/types";
+import { Inventory, Select } from "@/types";
 
 export const navLinks = [
   { title: "home", href: "/" },
@@ -69,4 +69,43 @@ export const menuCategories: string[] = [
   "grills & sides",
   "beverages",
   "deserts",
+];
+
+export const proteins: Select[] = [
+  {
+    id: "fried-chicken",
+    name: "Fried Chicken",
+    price: 0,
+    isDefault: true,
+  },
+  {
+    id: "grilled-fish",
+    name: "Grilled Fish",
+    price: 500,
+    isDefault: false,
+  },
+  {
+    id: "beef",
+    name: "Beef",
+    price: 700,
+    isDefault: false,
+  },
+];
+
+export const extras: Omit<Select, "isDefault">[] = [
+  {
+    id: "fried-plantain",
+    name: "Fried Plantain",
+    price: 700,
+  },
+  {
+    id: "coleslaw",
+    name: "Coleslaw",
+    price: 500,
+  },
+  {
+    id: "extra-pepper-sauce",
+    name: "Extra Pepper Sauce",
+    price: 300,
+  },
 ];

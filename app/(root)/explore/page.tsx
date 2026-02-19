@@ -40,7 +40,7 @@ const Explore = () => {
       </section>
 
       {/* Menu categories */}
-      <section className="container mx-auto bg-white rounded-t-lg space-y-3.5 mt-18 py-4.5">
+      <section className="container mx-auto bg-white rounded-t-lg space-y-3.5 mt-18 py-4.5 max-w-338.5">
         <h2 className="capitalize font-semibold text-[24px] leading-8.5 px-6.5">
           menu categories
         </h2>
@@ -62,7 +62,7 @@ const Explore = () => {
       {menuCategories.map((menu, idx) => (
         <section className="container mx-auto my-12" key={idx} id={menu}>
           {/* Container header */}
-          <h2 className="capitalize font-bold text-[32px] leading-10.5 mb-4">
+          <h2 className="capitalize font-bold text-[32px] leading-10.5 mb-4 max-sm:text-center 2xl:ml-34">
             {menu}
           </h2>
 
