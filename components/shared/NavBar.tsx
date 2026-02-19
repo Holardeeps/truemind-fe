@@ -23,7 +23,7 @@ const NavBar = () => {
   }, [pathname]);
 
   return (
-    <div className="sticky top-0 w-full h-22.5 bg-white">
+    <header className="sticky top-0 w-full h-22.5 bg-white z-20">
       <nav className="w-full h-full px-12 py-4.5 flex gap-11.25 items-center relative">
         <Image
           src={"/images/ChuksKitchen.png"}
@@ -48,7 +48,7 @@ const NavBar = () => {
           Login
         </Button>
       </nav>
-    </div>
+    </header>
   );
 };
 
