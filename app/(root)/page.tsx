@@ -36,8 +36,19 @@ const page = () => {
               Discover what's new
             </Button>
           </Link>
-
-          {/* TODO: input search */}
+        </div>
+        {/* TODO: input search */}
+        <div className="absolute inset-x-0 -bottom-9.5 container mx-auto h-19.5 shadow-[0px_6px_30px_5px_rgba(0, 0, 0, 0.12)] rounded-sm bg-white p-4 flex items-center justify-center gap-4 text-details font-semibold text-2xl focus-within:ring-2 focus-within:ring-primary-orange">
+          <img
+            src="/icons/search-sm.png"
+            alt=""
+            className="w-10.5 h-10.5 max-md:w-8.5 max-md:h-8.5"
+          />
+          <input
+            type="text"
+            className="flex-1 bg-transparent outline-none"
+            placeholder="What are you craving for today?"
+          />
         </div>
       </section>
 
