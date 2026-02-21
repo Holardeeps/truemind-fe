@@ -5,9 +5,10 @@ import Link from "next/link";
 const MyOrder = () => {
   return (
     <section className="min-h-screen px-4 py-8" id="home">
-      <div className="container mx-auto bg-white space-y-2 rounded-md px-5 py-6">
+      <div className="container max-w-333 mx-auto bg-white space-y-2 rounded-md px-5 py-6">
         <h2 className="font-bold text-3xl text-primary">Your Cart</h2>
         <div className="w-full space-y-1">
+          {/* number array to map itesm from */}
           {Array.from({ length: 4 }).map((_, i) => (
             <CartCard key={i} />
           ))}
@@ -26,7 +27,7 @@ const MyOrder = () => {
 
           <Link href={"/my-order/summary"}>
             <Button className=" w-53.75 h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-[#ff7a44] border-[#FF7A18] border-2 rounded-lg cursor-pointer">
-              Proceed to Checkout
+              Proceed
             </Button>
           </Link>
         </div>

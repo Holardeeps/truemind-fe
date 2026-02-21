@@ -1,6 +1,23 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 const CartCard = () => {
+  const [count, setCount] = useState(1);
+
+  //Mimicking increment and decrement functions
+  // decrease item count in cart and return if count === 0
+  const decrement = () => {
+    if (count === 0) return;
+
+    setCount((prev) => prev - 1);
+  };
+  //increase item count in cart
+  const increment = () => {
+    setCount((prev) => prev + 1);
+  };
+
   return (
     <div className="flex w-full border border-stroke rounded-sm py-1 px-6 gap-11.75 items-center justify-center">
       <Image
@@ -20,11 +37,19 @@ const CartCard = () => {
           </p>
         </div>
         <div className="flex items-center gap-11.75 justify-between text-black transition-colors">
-          <span className="w-7.5 h-7.5 bg-[#BDBDBD] text-4xl leading-7.5 rounded-md text-center hover:bg-primary-orange hover:text-soft-gray duration-300 ease-in-out">
+          <span
+            className="w-7.5 h-7.5 bg-[#BDBDBD] text-4xl leading-7.5 rounded-md text-center hover:bg-primary-orange hover:text-soft-gray duration-300 ease-in-out cursor-pointer"
+            onClick={increment}
+          >
             +
           </span>
-          <span className="font-medium text-[51.53px] leading-18.25">{`1`}</span>
-          <span className="w-7.5 h-7.5 bg-[#BDBDBD] text-4xl leading-6.5 rounded-md text-center hover:bg-primary-orange hover:text-soft-gray duration-300 ease-in-out">
+          <span className="font-medium text-[51.53px] leading-18.25">
+            {count}
+          </span>
+          <span
+            className="w-7.5 h-7.5 bg-[#BDBDBD] text-4xl leading-6.5 rounded-md text-center hover:bg-primary-orange hover:text-soft-gray duration-300 ease-in-out cursor-pointer"
+            onClick={decrement}
+          >
             -
           </span>
         </div>
