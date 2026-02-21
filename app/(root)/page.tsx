@@ -1,4 +1,4 @@
-import FoodCard from "@/components/FoodCard";
+import FoodCard from "@/components/cards/FoodCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { categories, inventory } from "@/constants";

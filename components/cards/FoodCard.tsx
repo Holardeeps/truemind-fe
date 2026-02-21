@@ -1,9 +1,9 @@
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import Image from "next/image";
-import { Button } from "./ui/button";
 import { Inventory } from "@/types";
 import Link from "next/link";
 import { slugify } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 type FoodCardProps = {
   item: Inventory;

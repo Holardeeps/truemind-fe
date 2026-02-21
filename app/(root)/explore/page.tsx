@@ -1,4 +1,4 @@
-import FoodCard from "@/components/FoodCard";
+import FoodCard from "@/components/cards/FoodCard";
 import { inventory, menuCategories } from "@/constants";
 import Image from "next/image";
 
