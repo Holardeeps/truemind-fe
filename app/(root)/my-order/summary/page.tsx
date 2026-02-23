@@ -5,13 +5,18 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Field, FieldLabel } from "@/components/ui/field";
 import Link from "next/link";
+import { paymentTypes } from "@/constants";
+import Image from "next/image";
 
 const page = () => {
   //state to handle the delivery option choice from the client
   const [deliveryMethod, setDeliveryMethod] = useState("delivery");
 
+  const [paymentOption, setPaymentOption] = useState("card");
+
   return (
-    <section className="min-h-screen px flex items-center justify-center">
+    // remove flex col and gap after spliting code into smaller components
+    <section className="min-h-screen px-5.75 py-20 flex flex-col gap-8 items-center justify-center">
       {/* Order Summary */}
       <div className="w-171 bg-white rounded-sm py-5 px-4 space-y-6">
         <h2 className="text-3xl font-bold py-6 capitalize border-b border-stroke">
@@ -94,6 +99,197 @@ const page = () => {
             </Button>
           </div>
         </div>
+      </div>
+
+      {/* Delivery details  */}
+
+      <div className="w-171 bg-white rounded-sm py-5 px-4 space-y-6">
+        <h2 className="text-3xl font-bold py-6 capitalize border-b border-stroke">
+          delivery details
+        </h2>
+
+        <div className="flex gap-6 justify-between border border-[#BDBDBD] rounded-sm text-[16px] font-medium">
+          <textarea
+            id="feedback"
+            placeholder={`Home: 123 Main Street, Victoria Island, Lagos Apt 4B, Opposite Mega Plaza`}
+            rows={5}
+            className="flex-1 p-2 pt-3 placeholder:text-black outline-none"
+          />
+          <span className="text-primary-blue pt-5 px-3 cursor-pointer h-fit">
+            change address
+          </span>
+        </div>
+
+        <Field>
+          <FieldLabel
+            htmlFor="feedback"
+            className="text-2xl font-medium capitalize"
+          >
+            delivery time
+          </FieldLabel>
+          <textarea
+            id="feedback"
+            placeholder={`ASAP(30-25)`}
+            rows={2}
+            className="border border-[#BDBDBD] rounded-sm text-[16px] font-medium p-2 placeholder:text-black"
+          />
+        </Field>
+
+        <Field>
+          <FieldLabel
+            htmlFor="feedback"
+            className="text-2xl font-medium capitalize"
+          >
+            delivery Instructions (optional)
+          </FieldLabel>
+          <textarea
+            id="feedback"
+            placeholder={`E.g leave at the front of the door, knock twice...................`}
+            rows={4}
+            className="border border-[#BDBDBD] rounded-sm text-[16px] font-medium p-2 placeholder:text-black"
+          />
+        </Field>
+
+        <Field>
+          <FieldLabel
+            htmlFor="feedback"
+            className="text-2xl font-medium capitalize"
+          >
+            contact address
+          </FieldLabel>
+          <textarea
+            id="feedback"
+            placeholder={`+234 801 234 5678`}
+            rows={2}
+            className="border border-[#BDBDBD] rounded-sm text-[16px] font-medium p-2 placeholder:text-black"
+          />
+        </Field>
+      </div>
+
+      {/* Payment details */}
+
+      <div className="w-171 bg-white rounded-sm py-5 px-4 space-y-6">
+        <h2 className="text-3xl font-bold py-6 capitalize border-b border-stroke">
+          payment details
+        </h2>
+
+        <div className="space-y-2">
+          <h3 className="font-semibold text-[20px] leading-7.5 text-text-dark capitalize">
+            pay with:
+          </h3>
+          <div className="flex items-center gap-2.5 p-2.5 text-text-dark mb-6">
+            {paymentTypes.map((paymentType) => (
+              <div
+                key={paymentType}
+                className="flex-1 flex items-center justify-start gap-4 capitalize"
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className={`w-4.5 h-4.5 rounded-full flex items-center justify-center border-2 transition cursor-pointer ${paymentOption === paymentType ? "border-click" : "border-stroke"}`}
+                    onClick={() => setPaymentOption(paymentType)}
+                  >
+                    {paymentOption === paymentType && (
+                      <div className="w-2.5 h-2.5 bg-[#2FBD6A] rounded-full"></div>
+                    )}
+                  </div>
+                  <span
+                    className={`text-base ${paymentOption === paymentType ? "text-text-dark" : "text-stroke"}`}
+                  >
+                    {paymentType}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-base font-medium text-text-dark capitalize space-y-2 p-2.5 w-full">
+            <div className="space-y-4">
+              <h3 className="">card number</h3>
+
+              <input
+                type="number"
+                className="border-2 border-stroke py-3 pl-4 rounded-sm w-full gap-2.5"
+                placeholder="1234  5678  9101  1121"
+                required
+              />
+            </div>
+
+            <div className="flex w-full items-center gap-4.5 py-2">
+              <div className="flex-1 space-y-4">
+                <h3 className="">expiration date</h3>
+
+                <input
+                  type="number"
+                  className="border-2 border-stroke py-3 pl-4 rounded-sm w-full gap-2.5"
+                  placeholder="MM/YY"
+                  required
+                />
+              </div>
+              <div className="flex-1 space-y-4 uppercase">
+                <h3 className="">cvv</h3>
+
+                <input
+                  type="number"
+                  className="border-2 border-stroke py-3 pl-4 rounded-sm w-full gap-2.5"
+                  placeholder="123"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="text-stroke text-base leading-[140%] tracking-tighter flex items-center gap-4">
+              <input
+                type="checkbox"
+                className="w-4 h-4 text-stroke focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-orange"
+              />
+              <p className="hover:text-primary-orange">Save card details</p>
+            </div>
+          </div>
+          {/* payment button */}
+
+          <Link href={``}>
+            <Button className="px-8 py-3.75 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer">
+              {`Pay ₦9,900`}
+            </Button>
+          </Link>
+
+          <p className="text-sm text-[#ACACAC] mt-4">
+            Your personal data will be used to process your order, support your
+            experience throughout this website, and for other purposes described
+            in our privacy policy.
+          </p>
+        </div>
+      </div>
+
+      {/* success confirmation */}
+      <div className="max-w-101.75 flex flex-col items-center justify-center text-black">
+        <img
+          src="/icons/plus-bold.png"
+          alt="success icon"
+          className="w-22.25 h-22.25 rounded-full"
+        />
+        <div className="w-101.75 h-75 relative py-4 px-5 text-center">
+          <p className="text-[17px] font-medium">Order Placed Successfully!</p>
+          <p className="text-[16px] font-normal">
+            Your delicious Chuks Kitchen meal is on its way!
+          </p>
+          {/* <Image /> */}
+        </div>
+        <p className="">Order #123RGR231567Y Confirmed</p>
+        <Link href={``}>
+          <Button className="px-8 py-3.75 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer capitalize">
+            {`track order`}
+          </Button>
+        </Link>
+
+        <Link href={``}>
+          <Button className="px-8 py-3.75 w-full h-13.5 bg-[#F3F4F6] text-[#9da3a1] font-semibold text-base hover:bg-soft-gray hover:text-[#FF7A18] rounded-lg cursor-pointer capitalize">
+            {`generate reciepts`}
+          </Button>
+        </Link>
+        <p className="text-primary-blue text-base">
+          Need help with your order?
+        </p>
       </div>
     </section>
   );

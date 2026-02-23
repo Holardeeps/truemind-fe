@@ -109,3 +109,5 @@ export const extras: Omit<Select, "isDefault">[] = [
     price: 300,
   },
 ];
+
+export const paymentTypes: string[] = ["card", "bank", "transfer"];
