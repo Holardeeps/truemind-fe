@@ -167,6 +167,34 @@
     scroll-behavior: smooth;
   }
 }
+/* loading animation from gray to orange */
+@keyframes spinner-fade {
+  0% {
+    background-color: var(--color-primary-orange);
+  }
+  25% {
+    background-color: var(--color-stroke);
+  }
+  50% {
+    background-color: var(--color-soft-gray);
+  }
+  75% {
+    background-color: var(--color-light-orange);
+  }
+  100% {
+    background-color: var(--color-white);
+  }
+}
+
+@layer utilities {
+  .animate-petal {
+    animation-name: spinner-fade;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: background-color;
+  }
+}
 
 .background {
   background:

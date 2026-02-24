@@ -44,7 +44,7 @@ const NavBar = () => {
           ))}
         </ul>
 
-        <Link href={`/sign-in`}>
+        <Link href={`/welcome`}>
           <Button className="px-8 py-3.75 w-40 h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer">
             Login
           </Button>

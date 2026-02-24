@@ -4,25 +4,90 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type AuthFormProps = {
   authType: "signIn" | "signUp";
 };
+type FormData = {
+  email: string;
+  phone: string;
+  password: string;
+  confirmPassowrd: string;
+};
 
 const AuthForm = ({ authType }: AuthFormProps) => {
+  // state to reveal and hide password fields
   const [show, setShow] = useState(false);
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // state to control formdata
+  const [formData, setFormData] = useState<FormData>({
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassowrd: "",
+  });
+  // Form data error state
+  const [formError, setFormError] = useState("");
+  // loading state on submit
+  const [loading, setLoading] = useState(false);
+  // password error to check if password fields are both the same
+  const [passwordError, setPasswordError] = useState(false);
 
-  const formSubmit = () => {
-    // store data
-    // validate
+  const router = useRouter();
+
+  // handle change function to update the formdata fields from the input elements
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Form action to run on submitof the form
+  const formSubmit = async (type: string, formData: FormData) => {
+    const { email, password, confirmPassowrd, phone } = formData;
+
+    //Check if email and password fields are not empty for both signUp and signIn
+    if (!email || !password) {
+      setLoading(false);
+      setFormError(
+        type === "sign-up"
+          ? "All fields are required"
+          : "Email and password are required",
+      );
+      return;
+    }
+
+    //  fields confirmation on type signup
+    if (type === "sign-up") {
+      if (!phone || !confirmPassowrd) {
+        setLoading(false);
+        setFormError("All fields are required");
+        return;
+      }
+
+      if (password !== confirmPassowrd) {
+        setLoading(false);
+        setPasswordError(true);
+        return;
+      }
+    }
+
+    try {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      // alert(`${type === "sign-up" ? "Registered" : "Logged In"}`);
+      router.push(`/explore`);
+    } catch (error) {
+      // alert("Something went wrong");
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="md:w-116 p-2.5 text-black">
       {/* Auth Form Header */}
-      <div className="flex flex-col items-center justify-center mb-6">
+      <div className="flex flex-col items-center justify-center mb-6" id="home">
         <Image
           src={"/images/ChuksKitchen.png"}
           alt="Chuks Kitchen Logo"
@@ -49,8 +114,11 @@ const AuthForm = ({ authType }: AuthFormProps) => {
         <div className="border border-stroke rounded-sm py-1 px-4 w-full h-13.5 gap-3 flex items-center justify-center transition-all duration-300 ease-in-out focus-within:ring-2 mt-3 hover:mt-2 focus-within:ring-primary-blue mb-4">
           <img src="/icons/mail.svg" alt="" className="w-5 h-5" />
           <input
+            name="email"
             id="email-address"
             type="email"
+            value={formData.email}
+            onChange={handleChange}
             className="flex-1 w-full outline-none"
             placeholder="name@gmail.com"
             required
@@ -69,8 +137,11 @@ const AuthForm = ({ authType }: AuthFormProps) => {
             <div className="border border-stroke rounded-sm py-1 px-4 w-full h-13.5 gap-3 flex items-center justify-center transition-all duration-300 ease-in-out focus-within:ring-2 mt-3 hover:mt-2 focus-within:ring-primary-blue mb-4">
               <img src="/icons/phone.png" alt="" className="w-5 h-5" />
               <input
+                name="phone"
                 id="phone-number"
                 type="tel"
+                value={formData.phone}
+                onChange={handleChange}
                 className="flex-1 w-full outline-none"
                 placeholder="Phone number"
                 required
@@ -81,20 +152,21 @@ const AuthForm = ({ authType }: AuthFormProps) => {
 
         <label
           htmlFor="password"
-          className="capitalize text-form text-sm font-medium"
+          className={`capitalize ${authType === "signUp" && passwordError ? "text-red-500" : "text-form"} text-sm font-medium`}
         >
           password
         </label>
 
         <div
-          className={`border border-stroke rounded-sm py-1 px-4 w-full h-13.5 gap-3 flex items-center justify-center transition-all duration-300 ease-in-out focus-within:ring-2 mt-3 hover:mt-2 focus-within:ring-primary-blue mb-4 ${authType === "signUp" && password !== confirmPassword ? "focus-within:ring-red-500" : ""}`}
+          className={`border border-stroke rounded-sm py-1 px-4 w-full h-13.5 gap-3 flex items-center justify-center transition-all duration-300 ease-in-out focus-within:ring-2 mt-3 hover:mt-2 focus-within:ring-primary-blue mb-4`}
         >
           <img src="/icons/lock.png" alt="" className="w-5 h-5" />
           <input
+            name="password"
             id="password"
             type={show ? "text" : "password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={handleChange}
             className="flex-1 w-full outline-none"
             placeholder="Password"
             required
@@ -119,25 +191,29 @@ const AuthForm = ({ authType }: AuthFormProps) => {
             />
           )}
         </div>
+        {authType === "signIn" && formError && (
+          <span className="text-sm text-red-500 block -mt-2">{formError}</span>
+        )}
 
         {authType === "signUp" && (
           <>
             <label
               htmlFor="confirm-password"
-              className="capitalize text-form text-sm font-medium"
+              className={`capitalize ${passwordError ? "text-red-500" : "text-form"} text-sm font-medium`}
             >
               confirm password
             </label>
 
             <div
-              className={`border border-stroke rounded-sm py-1 px-4 w-full h-13.5 gap-3 flex items-center justify-center transition-all duration-300 ease-in-out focus-within:ring-2 mt-3 hover:mt-2 focus-within:ring-primary-blue mb-2 ${authType === "signUp" && password !== confirmPassword ? "focus-within:ring-red-500" : ""}`}
+              className={`border border-stroke rounded-sm py-1 px-4 w-full h-13.5 gap-3 flex items-center justify-center transition-all duration-300 ease-in-out focus-within:ring-2 mt-3 hover:mt-2 focus-within:ring-primary-blue mb-2 ${authType === "signUp" && formData.password !== formData.confirmPassowrd ? "focus-within:ring-red-500" : ""}`}
             >
               <img src="/icons/lock.png" alt="" className="w-5 h-5" />
               <input
+                name="confirmPassowrd"
                 id="confirm-password"
                 type={show ? "text" : "password"}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={formData.confirmPassowrd}
+                onChange={handleChange}
                 className="flex-1 w-full outline-none"
                 placeholder="Password"
                 required
@@ -162,6 +238,14 @@ const AuthForm = ({ authType }: AuthFormProps) => {
                 />
               )}
             </div>
+            {formError && (
+              <span className="text-sm text-red-500 block">{formError}</span>
+            )}
+            {passwordError && (
+              <span className="text-sm text-red-500 block">
+                Passwords don't match...
+              </span>
+            )}
           </>
         )}
       </form>
@@ -174,9 +258,19 @@ const AuthForm = ({ authType }: AuthFormProps) => {
         </p>
       </div>
 
-      <Link href={``} className="w-full">
-        <Button className="px-8 py-3.75 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-[#f16d0f] border-[#FF7A18] border-2 rounded-lg cursor-pointer transition-colors duration-300 ease-in-out">
-          Continue
+      <Link
+        href={``}
+        className="w-full"
+        onClick={() =>
+          formSubmit(authType === "signUp" ? "sign-up" : "sign-in", formData)
+        }
+      >
+        <Button
+          className="px-8 py-3.75 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-[#f16d0f] border-[#FF7A18] border-2 rounded-lg cursor-pointer transition-colors duration-300 ease-in-out"
+          disabled={loading}
+        >
+          {loading ? "Processing" : "Continue"}
+          {loading ? <Loader2 className="animate-spin" /> : ""}
         </Button>
       </Link>
 
@@ -199,9 +293,12 @@ const AuthForm = ({ authType }: AuthFormProps) => {
 
       <p className="text-[12px] text-center mt-3">
         {true ? "Don't have an account?" : "Already have an account?"}{" "}
-        <span className="text-primary-blue pl-1">
+        <Link
+          href={authType === "signUp" ? "/sign-in" : "/sign-up"}
+          className="text-primary-blue pl-1"
+        >
           {authType === "signUp" ? "Sign in" : "Create an account"}
-        </span>
+        </Link>
       </p>
     </div>
   );
