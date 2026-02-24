@@ -37,6 +37,7 @@
   --color-stroke: #bdbdbd;
   --color-text-dark: #0a0d13;
   --color-click: #2fbd6a;
+  --color-form: #3b4758;
 }
 
 @theme inline {

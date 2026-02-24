@@ -11,7 +11,9 @@ export default function OnboardingLayout({
   return (
     <main className="flex w-full min-h-screen bg-soft-gray">
       <AuthImage />
-      <div className="w-1/2 max-md:w-full">{children}</div>
+      <div className="w-1/2 max-md:w-full flex items-center justify-center">
+        {children}
+      </div>
     </main>
   );
 }

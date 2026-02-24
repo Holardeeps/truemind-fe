@@ -264,7 +264,7 @@ const page = () => {
       {/* success confirmation */}
       <div className="max-w-101.75 flex flex-col items-center justify-center text-black">
         <img
-          src="/icons/plus-bold.png"
+          src="/icons/check.png"
           alt="success icon"
           className="w-22.25 h-22.25 rounded-full"
         />
@@ -273,10 +273,17 @@ const page = () => {
           <p className="text-[16px] font-normal">
             Your delicious Chuks Kitchen meal is on its way!
           </p>
-          {/* <Image /> */}
+          <Image
+            src={`/videos/success.gif`}
+            alt="Order success cofirmation"
+            unoptimized
+            fill
+          />
         </div>
-        <p className="">Order #123RGR231567Y Confirmed</p>
-        <Link href={``}>
+        <p className="text-2xl font-medium text-text-dark">
+          Order #123RGR231567Y Confirmed
+        </p>
+        <Link href={``} className="w-full">
           <Button className="px-8 py-3.75 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer capitalize">
             {`track order`}
           </Button>
@@ -287,7 +294,7 @@ const page = () => {
             {`generate reciepts`}
           </Button>
         </Link>
-        <p className="text-primary-blue text-base">
+        <p className="text-primary-blue text-base cursor-pointer">
           Need help with your order?
         </p>
       </div>
