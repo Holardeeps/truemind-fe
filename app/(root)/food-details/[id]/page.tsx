@@ -3,11 +3,7 @@ import { inventory } from "@/constants";
 import { getRandomFoodItem, slugify } from "@/lib/utils";
 import Image from "next/image";
 
-type FoodCardProps = {
-  params: { id: string };
-};
-
-const FoodCard = async ({ params }: FoodCardProps) => {
+const FoodCard = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
   const food =
