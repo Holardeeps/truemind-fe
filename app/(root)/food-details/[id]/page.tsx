@@ -10,8 +10,7 @@ const FoodCard = async ({ params }: { params: Promise<{ id: string }> }) => {
     inventory.find((item) => id === slugify(item.name)) ||
     getRandomFoodItem(inventory);
 
-  if (!food || food === undefined)
-    return new Error("Could'nt get this exact food from the Inventory..");
+  if (!food || food === undefined) return;
 
   return (
     <section className="flex max-md:flex-col w-full min-h-screen" id="home">
