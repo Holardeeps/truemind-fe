@@ -23,11 +23,11 @@ const page = () => {
         />
 
         {/* Hero text's */}
-        <div className="relative text-white lg:w-2/3 space-y-8.5">
-          <h1 className="font-bold text-5xl max-w-3xl">
+        <div className="relative text-white lg:w-2/3 space-y-8.5 max-md:space-y-5">
+          <h1 className="font-bold text-5xl max-md:text-[32px] max-w-3xl">
             The Heart of Nigerian Home Cooking
           </h1>
-          <h3 className="font-bold text-[32px] leading-10.5">
+          <h3 className="font-bold text-[32px] max-md:text-base leading-10.5">
             Handcrafted with passion, delivered with care.
           </h3>
 
@@ -38,11 +38,11 @@ const page = () => {
           </Link>
         </div>
         {/* TODO: input search */}
-        <div className="absolute inset-x-0 -bottom-9.5 container mx-auto h-19.5 shadow-[0px_6px_30px_5px_rgba(0, 0, 0, 0.12)] rounded-sm bg-white p-4 flex items-center justify-center gap-4 text-details font-semibold text-2xl focus-within:ring-2 focus-within:ring-primary-orange">
+        <div className="absolute inset-x-0 -bottom-9.5 max-md:-bottom-4.5 max-md:w-87.75 container mx-auto h-19.5 max-md:h-9 shadow-[0px_6px_30px_5px_rgba(0, 0, 0, 0.12)] rounded-sm bg-white p-4 max-md:py-1.75 max-md:px-3.75 flex items-center justify-center gap-4 max-md:gap-1.25 text-details font-semibold text-2xl max-md:text-base max-md:font-normal focus-within:ring-2 focus-within:ring-primary-orange">
           <img
             src="/icons/search-sm.png"
             alt=""
-            className="w-10.5 h-10.5 max-md:w-8.5 max-md:h-8.5"
+            className="w-10.5 h-10.5 max-md:w-5.5 max-md:h-5.5"
           />
           <input
             type="text"
@@ -75,7 +75,7 @@ const page = () => {
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </CardContent>
-                  <CardFooter className="px-0 text-center justify-center font-semibold capitalize text-details max-sm:text-lg text-[24px] leading-8.5 max-sm:py-5 py-8 group-hover:bg-primary-orange group-hover:text-white transition-color duration-500 ease-in-out">
+                  <CardFooter className="px-0 text-center justify-center font-semibold capitalize text-details max-sm:text-lg text-[24px] max-md:text-[14px] leading-8.5 max-md:py-2 py-8 group-hover:bg-primary-orange group-hover:text-white transition-color duration-500 ease-in-out">
                     {category.name}
                   </CardFooter>
                 </Card>
@@ -114,10 +114,10 @@ const page = () => {
 
         {/* Hero text's */}
         <div className="relative text-white lg:w-2/3 space-y-8.5">
-          <h1 className="font-bold text-[48px]">
+          <h1 className="font-bold text-[48px] max-md:text-3xl">
             Introducing Our New Menu Additions!
           </h1>
-          <h3 className="font-bold text-[24px] leading-10.5">
+          <h3 className="font-bold text-[24px] max-md:font-semibold max-md:text-[20px] leading-10.5">
             Explore exciting new dishes, crafted with the freshest ingredients
             and authentic Nigerian flavors. Limited time offer!
           </h3>

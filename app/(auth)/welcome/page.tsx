@@ -11,14 +11,14 @@ const OnBoarding = () => {
 
   return (
     <div className="w-full bg-white overflow-hidden">
-      <div className="md:hidden w-full h-42 relative">
+      <div className="md:hidden w-full h-42 relative overflow-hidden">
         <Image
-          src={`/images/mobile-banner.png`}
+          src={`/images/mobile-banner2.png`}
           // width={100}
           fill
           // height={37}
           alt="Mobile banner image"
-          className="object-fill"
+          className="object-cover"
         />
       </div>
       <div className="min-h-screen mx-auto relative flex justify-between max-md:justify-around md:py-8 flex-col max-xl:p-6 md:max-w-144.25">
@@ -81,7 +81,7 @@ const OnBoarding = () => {
               </Button>
             </Link>
 
-            <Link href={`/sign-up`}>
+            <Link href={`#`}>
               <Button className="py-7.5 bg-white text-[#1E88E5] font-semibold text-base hover:-translate-y-1.5 border-2 border-[#1E88E5] hover:bg-white rounded-xl max-md:py-6 w-full cursor-pointer">
                 Learn More About Us
               </Button>
