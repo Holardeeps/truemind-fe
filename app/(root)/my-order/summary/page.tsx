@@ -20,7 +20,7 @@ const page = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [step]);
+  }, [loading]);
 
   // for loading UI
   const petals = 8;
