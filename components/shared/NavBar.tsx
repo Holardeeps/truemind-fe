@@ -77,11 +77,12 @@ const NavBar = () => {
           )}
         </span>
 
+        {/* mobile navbar */}
         {showMenu && (
           <div
             className={`absolute w-full bg-white left-0 transition-all duration-500 ease-in-out z-50 ${showMenu ? "top-10 opacity-100" : "top-[-100vh] opacity-0"}`}
           >
-            <ul className=" flex flex-col items-center justify-center pt-6 capitalize text-xl font-medium text-details md:hidden z-10">
+            <ul className=" flex flex-col items-center justify-center mt-4 capitalize text-xl font-medium text-details md:hidden z-10 border-t-2 border-soft-orange">
               {navLinks.slice(0, 4).map((link) => (
                 <Link
                   key={link.href}
@@ -95,7 +96,7 @@ const NavBar = () => {
             </ul>
 
             <Link href={`/welcome`}>
-              <Button className="px-8 py-3.75 mb-4 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-t-lg rounded-b-none cursor-pointer">
+              <Button className="px-8 py-3.75 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-t-lg rounded-b-none cursor-pointer border-b-2 border-b-dark-orange">
                 Login
               </Button>
             </Link>
@@ -104,7 +105,7 @@ const NavBar = () => {
 
         {showMenu && (
           <div
-            className="fixed inset-0 top-10 bg-black/30 z-20 md:hidden"
+            className="fixed inset-0 top-10 bg-black/70 z-20 md:hidden"
             onClick={() => setShowMenu(false)}
           ></div>
         )}

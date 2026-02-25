@@ -99,6 +99,7 @@ To simulate a real-world food ordering experience, a structured and state-driven
 ### 🔹 Proceed to Checkout Integration
 
 - Added a **“Proceed to Checkout”** button from the cart.
+- Added a **Add to Cart”** button at the food-details page.
 - Linked checkout navigation to the **Account Page** for order review.
 - Structured a clear transition from cart interaction to order confirmation.
 

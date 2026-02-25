@@ -17,7 +17,7 @@ const FoodCard = ({ item, icon }: FoodCardProps) => {
       className="max-md:max-w-125 overflow-hidden"
     >
       <Card
-        className={`rounded-b-none group pt-0 overflow-hidden w-96.5 max-sm:w-90 gap-0 py-0 hover:shadow-lg ${icon && "max-md:flex max-md:flex-row max-md:p-1.5 max-md:rounded-sm max-md:w-full max-sm:w-full max-sm:mx-2 max-md:h-37"}`}
+        className={`rounded-b-none group pt-0 overflow-hidden w-96.5 max-sm:w-90 gap-0 py-0 hover:shadow-lg ${icon && "max-md:flex max-md:flex-row max-md:p-1.5 max-md:rounded-sm max-md:w-full max-sm:w-full max-md:h-37"}`}
       >
         <CardHeader
           className={`px-0 overflow-hidden ${icon && "max-md:relative max-md:w-45 max-md:h-full max-md:flex-1/2"}`}
@@ -34,7 +34,7 @@ const FoodCard = ({ item, icon }: FoodCardProps) => {
 
         <div className={`${icon && "max-sm:max-w-76.25 max-md:h-full"}`}>
           <CardContent
-            className={`py-4 space-y-2 text-details ${icon && "max-md:py-0 max-md:space-y-0"}`}
+            className={`py-4 space-y-2 text-details max-md:flex max-md:justify-between max-md:flex-col ${icon && "max-md:py-0 max-md:space-y-0"}`}
           >
             <h3
               className={`text-[24px] font-semibold ${icon && "max-md:text-base max-md:mb-2"}`}
@@ -42,7 +42,7 @@ const FoodCard = ({ item, icon }: FoodCardProps) => {
               {item.name}
             </h3>
             <p
-              className={`text-base font-medium h-12 ${icon ? "max-md:text-[12px]" : "line-clamp-2"}`}
+              className={`text-base font-medium  ${icon ? "max-md:text-[12px]" : "line-clamp-2"}`}
             >
               {item.description}
             </p>

@@ -11,7 +11,7 @@ const OnBoarding = () => {
 
   return (
     <div className="w-full bg-white overflow-hidden">
-      <div className="md:hidden w-full h-42 relative overflow-hidden">
+      <div className="md:hidden w-full min-h-42 relative overflow-hidden">
         <Image
           src={`/images/mobile-banner2.png`}
           // width={100}

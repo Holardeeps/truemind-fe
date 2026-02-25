@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Field, FieldGroup, FieldLabel, FieldSet } from "./ui/field";
 import { Inventory } from "@/types";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 type FoodDetailsProp = {
   food: Inventory;
@@ -159,6 +161,12 @@ food is tasty"
           </FieldSet>
         </div>
       </div>
+
+      <Link href={`/my-order`} className="w-full">
+        <Button className="px-8 py-3.75 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer">
+          {`Add to Cart`}
+        </Button>
+      </Link>
     </div>
   );
 };

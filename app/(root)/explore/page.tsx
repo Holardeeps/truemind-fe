@@ -68,7 +68,7 @@ const Explore = () => {
           id={menu}
         >
           {/* Container header */}
-          <h2 className="capitalize font-bold text-[32px] max-md:text-[18px] leading-10.5 mb-4 2xl:ml-34">
+          <h2 className="capitalize font-bold text-[32px] max-md:text-[18px] max-md:ml-6 leading-10.5 mb-4 2xl:ml-34">
             {menu}
           </h2>
 

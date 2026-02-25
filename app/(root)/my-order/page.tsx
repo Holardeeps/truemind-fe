@@ -5,16 +5,16 @@ import Link from "next/link";
 const MyOrder = () => {
   return (
     <section className="min-h-screen px-4 py-8" id="home">
-      <div className="container max-w-333 mx-auto bg-white space-y-2 rounded-md px-5 py-6">
+      <div className="container max-w-300 mx-auto bg-white space-y-2 rounded-md px-5 py-6">
         <h2 className="font-bold text-3xl text-primary">Your Cart</h2>
-        <div className="w-full space-y-1">
+        <div className="w-full space-y-3">
           {/* number array to map itesm from */}
           {Array.from({ length: 4 }).map((_, i) => (
             <CartCard key={i} />
           ))}
         </div>
 
-        <div className="flex max-md:flex-col max-md:w-full justify-between md:items-center">
+        <div className="flex max-md:flex-col max-md:w-full justify-between md:items-center mt-5">
           <Link
             href={`/explore`}
             className="flex gap-4 items-center justify-center text-primary-blue"
