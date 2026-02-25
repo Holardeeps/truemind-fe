@@ -26,8 +26,10 @@ const FoodDetailsContainer = ({ food }: FoodDetailsProp) => {
         className="place-self-end w-[31.45px] h-[24.46px] cursor-pointer"
         onClick={() => router.back()} //send the user back to the previous page
       />
-      <div className="space-y-4 mb-8">
-        <h2 className="text-[32px] font-bold leading-10.5">{food.name}</h2>
+      <div className="space-y-4 max-md:space-y-3.75 mb-8">
+        <h2 className="text-[32px] font-bold leading-10.5 max-md:text-2xl max-md:font-semibold">
+          {food.name}
+        </h2>
         <span className="font-semibold text-2xl text-primary-orange">
           ₦{food.price}
         </span>
@@ -36,7 +38,7 @@ const FoodDetailsContainer = ({ food }: FoodDetailsProp) => {
         </p>
       </div>
 
-      <div className="flex gap-10 text-dark-gray text-base -tracking-tighter mb-8">
+      <div className="flex max-md:flex-col max-md:items-start gap-10 text-dark-gray text-base -tracking-tighter mb-8">
         <span className="flex items-center justify-center gap-2.25">
           {" "}
           <img src="/icons/timer.png" alt="timer" className="size-6" /> Mildly
@@ -65,15 +67,15 @@ const FoodDetailsContainer = ({ food }: FoodDetailsProp) => {
               <div
                 key={item.name}
                 onClick={() => setSelectedProtein(item.name)}
-                className="flex items-center justify-between border border-[#BDBDBD] rounded-xl p-4 cursor-pointer transition"
+                className="flex items-center justify-between border border-[#BDBDBD] rounded-xl p-4 cursor-pointer transition max-md:h-13"
               >
                 <div className="flex items-center gap-4">
                   {/* Circle for selcected protein choice of user (fried chicken by default) */}
                   <div
-                    className={`w-8.5 h-8.5 rounded-full border-4 flex items-center justify-center border-primary-orange transition`}
+                    className={`w-8.5 h-8.5 max-md:w-6.5 max-md:h-6.5 rounded-full border-4 flex items-center justify-center border-primary-orange transition`}
                   >
                     {selectedProtein === item.name && (
-                      <div className="w-5 h-5 bg-primary-orange rounded-full"></div>
+                      <div className="w-5 h-5 max-md:w-4 max-md:h-4 bg-primary-orange rounded-full"></div>
                     )}
                   </div>
 
@@ -105,12 +107,12 @@ const FoodDetailsContainer = ({ food }: FoodDetailsProp) => {
                       : [...prev, item.id],
                   );
                 }}
-                className="flex items-center justify-between border border-[#BDBDBD] rounded-xl p-4 cursor-pointer transition"
+                className="flex items-center justify-between border border-[#BDBDBD] rounded-xl p-4 cursor-pointer transition max-md:h-13"
               >
                 <div className="flex items-center gap-4">
                   {/* Square for side dishes options*/}
                   <div
-                    className={`w-8.5 h-8.5 rounded-lg border-2 flex items-center justify-center transition
+                    className={`w-8.5 h-8.5 max-md:w-6.5 max-md:h-6.5 rounded-lg border-2 flex items-center justify-center transition
         ${
           selectedSides.includes(item.id)
             ? "border-primary-orange border-4"
@@ -118,7 +120,7 @@ const FoodDetailsContainer = ({ food }: FoodDetailsProp) => {
         }`}
                   >
                     {selectedSides.includes(item.id) && (
-                      <div className="w-5 h-5 bg-primary-orange rounded-sm"></div>
+                      <div className="w-5 h-5 max-md:w-4 max-md:h-4 bg-primary-orange rounded-sm"></div>
                     )}
                   </div>
 
