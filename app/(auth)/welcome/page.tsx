@@ -89,7 +89,7 @@ const OnBoarding = () => {
           </div>
         </div>
         {/* Onboarding footer */}
-        <div className="flex items-center justify-center gap-3 border-t border-soft-gray text-sm pt-2">
+        <div className="flex max-md:flex-col-reverse items-center justify-center gap-3 border-t border-soft-gray text-sm pt-2">
           <p className="text-details">© 2024 Chuks Kitchen.</p>
           <span className="text-primary-blue">Privacy Policy</span>
           <span className="text-primary-blue">Terms of Service</span>
