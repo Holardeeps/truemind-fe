@@ -23,7 +23,7 @@ const Explore = () => {
       >
         {/* backgroung image with overlay */}
         <Image
-          src={`/images/explore-banner.png`}
+          src={`/images/explore-banner.webp`}
           fill
           className="absolute inset-0 h-full w-full object-cover brightness-45"
           priority

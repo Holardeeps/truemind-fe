@@ -15,7 +15,7 @@ const page = () => {
       >
         {/* backgroung image with overlay */}
         <Image
-          src={`/images/hero-banner.png`}
+          src={`/images/hero-banner.webp`}
           fill
           className="absolute inset-0 h-full w-full object-cover brightness-45"
           priority
