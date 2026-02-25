@@ -53,7 +53,7 @@ Visit:
 First, clone the repository:
 
 ```bash
-git clone https://github.com/holardeeps/trueminds-fe.git
+git clone https://github.com/Holardeeps/truemind-fe
 cd into cloned repo
 
 npm install
