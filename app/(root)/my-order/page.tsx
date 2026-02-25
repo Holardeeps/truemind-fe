@@ -14,7 +14,7 @@ const MyOrder = () => {
           ))}
         </div>
 
-        <div className="flex justify-between items-center">
+        <div className="flex max-md:flex-col max-md:w-full justify-between md:items-center">
           <Link
             href={`/explore`}
             className="flex gap-4 items-center justify-center text-primary-blue"
@@ -26,7 +26,7 @@ const MyOrder = () => {
           </Link>
 
           <Link href={"/my-order/summary"}>
-            <Button className=" w-53.75 h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-[#ff7a44] border-[#FF7A18] border-2 rounded-lg cursor-pointer">
+            <Button className=" w-53.75 max-md:w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-[#ff7a44] border-[#FF7A18] border-2 rounded-lg cursor-pointer">
               Proceed
             </Button>
           </Link>

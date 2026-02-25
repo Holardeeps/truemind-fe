@@ -46,7 +46,7 @@ const page = () => {
       {/* Loading UI */}
       {loading && (
         <div className="flex h-screen w-full items-center justify-center">
-          <div className="relative h-40 w-40">
+          <div className="relative h-40 w-40 max-md:w-12.5 max-md:h-12.5">
             {[...Array(petals)].map((_, i) => (
               <div
                 className="animate-petal absolute left-[45%] top-0 bg-stroke w-[7%] h-[30%] rounded-full"
@@ -65,7 +65,7 @@ const page = () => {
       {/* Order Summary */}
 
       {!loading && step === "order-summary" && (
-        <div className="w-171 bg-white rounded-sm py-5 px-4 space-y-6">
+        <div className="w-171 max-md:w-full bg-white rounded-sm py-5 px-4 space-y-6">
           <h2 className="text-3xl font-bold py-6 capitalize border-b border-stroke">
             order summary
           </h2>
@@ -77,7 +77,7 @@ const page = () => {
               <input
                 type="text"
                 placeholder="Enter Code here"
-                className="flex-1 py-3.75 px-2.5 h-13.5 border border-stroke rounded-lg placeholder:text-base placeholder:text-details uppercase placeholder:capitalize placeholder:tracking-tighter text-lg focus-within:ring-2 focus-within:ring-primary-orange outline-none"
+                className="flex-1 max-md:w-1/2 py-3.75 px-2.5 h-13.5 border border-stroke rounded-lg placeholder:text-base placeholder:text-details uppercase placeholder:capitalize placeholder:tracking-tighter text-lg focus-within:ring-2 focus-within:ring-primary-orange outline-none"
               />
 
               <Link href={`/sign-in`}>
@@ -155,7 +155,7 @@ const page = () => {
       {/* Delivery details  */}
 
       {!loading && step === "delivery" && (
-        <div className="w-171 bg-white rounded-sm py-5 px-4 space-y-6">
+        <div className="w-171 max-md:w-full bg-white rounded-sm py-5 px-4 space-y-6">
           <h2 className="text-3xl font-bold py-6 capitalize border-b border-stroke">
             delivery details
           </h2>
@@ -167,7 +167,7 @@ const page = () => {
               rows={5}
               className="flex-1 p-2 pt-3 placeholder:text-black outline-none"
             />
-            <span className="text-primary-blue pt-5 px-3 cursor-pointer h-fit">
+            <span className="text-primary-blue max-md:hidden pt-5 px-3 cursor-pointer h-fit">
               change address
             </span>
           </div>
@@ -229,7 +229,7 @@ const page = () => {
       {/* Payment details */}
 
       {!loading && step === "payment" && (
-        <div className="w-171 bg-white rounded-sm py-5 px-4 space-y-6">
+        <div className="w-171 max-md:w-full bg-white rounded-sm py-5 px-4 space-y-6 max-md:mb-30">
           <h2 className="text-3xl font-bold py-6 capitalize border-b border-stroke">
             payment details
           </h2>
@@ -275,7 +275,7 @@ const page = () => {
                 />
               </div>
 
-              <div className="flex w-full items-center gap-4.5 py-2">
+              <div className="flex w-full items-center gap-4.5 max-md:gap-2 py-2">
                 <div className="flex-1 space-y-4">
                   <h3 className="">expiration date</h3>
 
@@ -326,28 +326,31 @@ const page = () => {
       {/* success confirmation */}
 
       {!loading && step === "success" && (
-        <div className="max-w-101.75 flex flex-col items-center justify-center text-black mt-20">
+        <div className="max-w-101.75 max-md:w-full flex flex-col items-center justify-center text-black mt-20 max-md:mb-30">
           <img
             src="/icons/check.png"
             alt="success icon"
-            className="w-22.25 h-22.25 rounded-full"
+            className="w-22.25 h-22.25 rounded-full max-md:w-10.75 max-md:h-10.75"
           />
           <div className="w-101.75 h-75 relative py-4 px-5 text-center">
-            <p className="text-[17px] font-medium">
-              Order Placed Successfully!
-            </p>
-            <p className="text-[16px] font-normal">
-              Your delicious Chuks Kitchen meal is on its way!
-            </p>
+            <div className="relative z-10">
+              <p className="text-[17px] max-md:text-[15px] font-medium z-10">
+                Order Placed Successfully!
+              </p>
+              <p className="text-[16px] max-md:text-[13px] font-normal">
+                Your delicious Chuks Kitchen meal is on its way!
+              </p>
+            </div>
             <Image
               src={`/videos/success.gif`}
               alt="Order success cofirmation"
+              className="absolute inset-0 w-full h-full object-cover z-0 max-md:py-4 max-md:px-5"
               unoptimized
               fill
             />
           </div>
-          <p className="text-2xl font-medium text-text-dark">
-            Order #123RGR231567Y Confirmed
+          <p className="text-2xl font-medium text-text-dark max-md:text-[20px] text-center max-md:font-semibold">
+            Order #123RGR231567Y <br className="md:hidden" /> Confirmed
           </p>
           <Link href={`/account`} className="w-full">
             <Button className="px-8 py-3.75 w-full h-13.5 bg-[#FF7A18] text-white font-semibold text-base hover:bg-white border-[#FF7A18] border-2 hover:text-[#FF7A18] rounded-lg cursor-pointer capitalize">
