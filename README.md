@@ -18,6 +18,55 @@ The application focuses on clean UI structure, reusable components, and intuitiv
 
 ---
 
+## 🌐 Live Demo
+
+The application is deployed and accessible online:
+
+👉 **Live URL:** https://chuks-kitchen-mu.vercel.app/
+
+You can explore the full user flow including:
+
+- Browsing meals  
+- Viewing food details  
+- Food cart page
+- Explore page
+- Onboarding/Welcome page
+- Sign In and Sign Up pages with simulated flow
+- Simulated checkout and order confirmation flow  
+
+---
+
+## 📦 Getting Started
+
+You can either run the project locally or explore the live version above.
+
+### 🔹 Option 1: View Live App
+
+Visit:
+
+👉 https://chuks-kitchen-mu.vercel.app/
+
+---
+
+### 🔹 Option 2: Run Locally
+
+First, clone the repository:
+
+```bash
+git clone https://github.com/holardeeps/trueminds-fe.git
+cd into cloned repo
+
+npm install
+
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+
+
 ## 🧩 Key Features Implemented
 
 ### 1️⃣ Pixel-Accurate UI Implementation
@@ -209,17 +258,3 @@ These enhancements elevate the project beyond static UI replication by introduci
 - Scalable component structure
 
 ---
-
-## 📦 Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
